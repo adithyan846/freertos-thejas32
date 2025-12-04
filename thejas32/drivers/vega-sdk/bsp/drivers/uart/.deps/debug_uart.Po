@@ -1,0 +1,63 @@
+drivers/uart/debug_uart.o: drivers/uart/debug_uart.c include/debug_uart.h \
+ include/config.h include/stdlib.h \
+ /home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/time.h \
+ /home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/_ansi.h \
+ /home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/newlib.h \
+ /home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/_newlib_version.h \
+ /home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/sys/config.h \
+ /home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/machine/ieeefp.h \
+ /home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/sys/features.h \
+ /home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/sys/cdefs.h \
+ /home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/machine/_default_types.h \
+ /home/hdg/Documents/saurav/vega-tools/toolchain/lib/gcc/riscv64-vega-elf/10.1.0/include/stddef.h \
+ /home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/sys/reent.h \
+ /home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/_ansi.h \
+ /home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/sys/_types.h \
+ /home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/machine/_types.h \
+ /home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/sys/lock.h \
+ /home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/machine/time.h \
+ /home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/sys/types.h \
+ /home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/sys/_stdint.h \
+ /home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/machine/endian.h \
+ /home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/machine/_endian.h \
+ /home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/sys/select.h \
+ /home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/sys/_sigset.h \
+ /home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/sys/_timeval.h \
+ /home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/sys/timespec.h \
+ /home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/sys/_timespec.h \
+ /home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/sys/_pthreadtypes.h \
+ /home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/sys/sched.h \
+ /home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/machine/types.h \
+ /home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/sys/_locale.h
+include/debug_uart.h:
+include/config.h:
+include/stdlib.h:
+/home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/time.h:
+/home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/_ansi.h:
+/home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/newlib.h:
+/home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/_newlib_version.h:
+/home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/sys/config.h:
+/home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/machine/ieeefp.h:
+/home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/sys/features.h:
+/home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/sys/cdefs.h:
+/home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/machine/_default_types.h:
+/home/hdg/Documents/saurav/vega-tools/toolchain/lib/gcc/riscv64-vega-elf/10.1.0/include/stddef.h:
+/home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/sys/reent.h:
+/home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/_ansi.h:
+/home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/sys/_types.h:
+/home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/machine/_types.h:
+/home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/sys/lock.h:
+/home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/machine/time.h:
+/home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/sys/types.h:
+/home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/sys/_stdint.h:
+/home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/machine/endian.h:
+/home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/machine/_endian.h:
+/home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/sys/select.h:
+/home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/sys/_sigset.h:
+/home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/sys/_timeval.h:
+/home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/sys/timespec.h:
+/home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/sys/_timespec.h:
+/home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/sys/_pthreadtypes.h:
+/home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/sys/sched.h:
+/home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/machine/types.h:
+/home/hdg/Documents/saurav/vega-tools/toolchain/riscv64-vega-elf/include/sys/_locale.h:

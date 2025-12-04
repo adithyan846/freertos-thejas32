@@ -1,0 +1,15 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+ELF_SRCS += \
+../thejas32/drivers/vega-sdk/examples/i2c/oled_pir_sensor/build/oled_pir_sensor.elf 
+
+O_SRCS += \
+../thejas32/drivers/vega-sdk/examples/i2c/oled_pir_sensor/build/demo.o \
+../thejas32/drivers/vega-sdk/examples/i2c/oled_pir_sensor/build/ssd1306.o 
+
+
+# Each subdirectory must supply rules for building sources it contributes
+
