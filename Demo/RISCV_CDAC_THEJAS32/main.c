@@ -20,8 +20,6 @@
 #include "led.h"
 #include "stdlib.h"
 
-#include "ads1015.h"
-#include "i2c_api.h"
 #include "adc.h"
 #include "i2c.h"
 #include "interrupt.h"
@@ -42,7 +40,7 @@
 #include "semphr.h"
 
 /* thejas64 incldues. */
-#include "riscv_hal.h"
+//#include "riscv_hal.h"
 
 /* Standard demo application includes. */
 #include "dynamic.h"
@@ -58,14 +56,13 @@
 
 #include "encoding.h"
 
-#include "CommonDb.h"
 #include "stdlib.h"
 #include "pwmc.h"
 //#include "i2c.h"
 #include "config.h"
 //#include "gpio.h"
 
-#include "CommonDb.h"
+
 
 
 

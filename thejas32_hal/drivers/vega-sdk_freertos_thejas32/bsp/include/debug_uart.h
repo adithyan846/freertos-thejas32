@@ -41,10 +41,11 @@ typedef struct uart_reg
 ***************************************************/
 
 void init_uart(void);
+void Transmit_uart(UC *data_ptr);
 void tx_uart(UC tx_char);
 UC rx_uart(void);
 UL get_long_int(UC noofBytes);
-//UC get_hex();
+UC get_hex();
 UL get_decimal(UC noOfDigits);
 
 #define uart_regs (*((volatile UART_REG *)(UART_BASE)))

@@ -52,15 +52,28 @@ void init_uart(void) {
 	__asm__ __volatile__ ("fence");
 }
 
+
+
 /**************************************************
- * Function name	: void tx_uart(UC tx_char)
- *    returns		: Nil
- * Tx_char           : Character to Tx
+ * Function name	: void Transmit_string_uart(ee_u8 *data_ptr)
+ *    returns	: Nil
+ *   *Char           : Pointer to the string to be transmitted
  * Created by		: Sreenadh.S
  * Date created		: 04/01/2007
- * Description		: Tx 1 character through UART
+ * Description		: Tx character through UART upto '\0'
  * Notes			:
- *************************************************/
+ **************************************************/
+
+void Transmit_uart(UC *data_ptr) {
+	UC lsr;
+
+	while (*data_ptr != '\0') {
+		tx_uart(*data_ptr);
+		data_ptr++;
+	}
+}
+
+
 /**
  @fn void void tx_uart(UC tx_char)
  @brief 1 byte character transmission
@@ -180,6 +193,67 @@ UL get_decimal(UC noOfDigits) {
 	return number;
 }
 
+
+
+/************************************************************
+ * Function name		: UC get_hex()
+ * returns		    : 1 byte unsigned character (number).
+ * Date created		: 22/07/2009
+ * Description		: To get hex value and display it to HT.
+ *************************************************************/
+/**
+ @fn UC get_hex()
+ @brief get hexadecimal value of entered digits
+ @details Receives number of digits to read
+ @return unsigned long Returns the hexadecimal value
+
+ */
+UC get_hex() {
+	unsigned char number = 0, dig1, dig2, count = 2, rx;
+	while (count) {
+		rx = rx_uart();
+		if (rx == '\b') {
+			if (count < 2) {
+				tx_uart(rx);
+				tx_uart(' ');
+				tx_uart(rx);
+				count++;
+				continue;
+			} else
+				return rx;
+		}
+
+		if ((rx >= 0x30) && (rx <= 0x39)) {
+			tx_uart(rx);
+			rx = rx - 0x30;
+		} else if ((rx >= 'A') && (rx <= 'F')) {
+			tx_uart(rx);
+			rx = rx - 0x37;
+		} else if ((rx >= 'a') && (rx <= 'f')) {
+			tx_uart(rx);
+			rx = rx - 0x57;
+		}
+
+		else
+			continue;
+		if (count == 2)
+			dig1 = rx;
+		else
+			dig2 = rx;
+		count--;
+	}
+	number = (dig1 << 4);
+	number |= dig2;
+	return number;
+}
+
+
+
+
+
+
+
+
 /**************************************************
  * Function name	: get_long_int()
  * returns		    : Nil
@@ -248,55 +322,4 @@ UL get_long_int(UC noofBytes) {
 	return hex_val;
 }
 
-/************************************************************
- * Function name		: UC get_hex()
- * returns		    : 1 byte unsigned character (number).
- * Date created		: 22/07/2009
- * Description		: To get hex value and display it to HT.
- *************************************************************/
-/**
- @fn UC get_hex()
- @brief get hexadecimal value of entered digits
- @details Receives number of digits to read
- @return unsigned long Returns the hexadecimal value
-
- */
-UC get_hex() {
-	unsigned char number = 0, dig1, dig2, count = 2, rx;
-	while (count) {
-		rx = rx_uart();
-		if (rx == '\b') {
-			if (count < 2) {
-				tx_uart(rx);
-				tx_uart(' ');
-				tx_uart(rx);
-				count++;
-				continue;
-			} else
-				return rx;
-		}
-
-		if ((rx >= 0x30) && (rx <= 0x39)) {
-			tx_uart(rx);
-			rx = rx - 0x30;
-		} else if ((rx >= 'A') && (rx <= 'F')) {
-			tx_uart(rx);
-			rx = rx - 0x37;
-		} else if ((rx >= 'a') && (rx <= 'f')) {
-			tx_uart(rx);
-			rx = rx - 0x57;
-		}
-
-		else
-			continue;
-		if (count == 2)
-			dig1 = rx;
-		else
-			dig2 = rx;
-		count--;
-	}
-	number = (dig1 << 4);
-	number |= dig2;
-	return number;
-}
 

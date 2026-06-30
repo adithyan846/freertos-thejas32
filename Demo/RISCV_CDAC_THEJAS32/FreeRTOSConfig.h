@@ -72,7 +72,7 @@
 #define FREERTOS_CONFIG_H
 
 #include "hw_platform.h"
-#include "riscv_plic.h"
+//#include "riscv_plic.h"
 /*-----------------------------------------------------------
  * Application specific definitions.
  *

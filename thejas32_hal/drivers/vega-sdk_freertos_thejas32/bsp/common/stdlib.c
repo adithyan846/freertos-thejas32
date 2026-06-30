@@ -24,7 +24,6 @@
 #include <stdint.h>
 #include <time.h>
 
-#include "core_uart.h"
 #include "encoding.h"
 #include "stdlib.h"
 
