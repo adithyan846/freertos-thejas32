@@ -23,13 +23,6 @@
 		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>FreeRTOS_plus_TCP</name>
-			<type>2</type>
-			<locationURI>FREERTOS_ROOT/FreeRTOS-Plus/Source/FreeRTOS-Plus-TCP</locationURI>
-		</link>
-	</linkedResources>
 	<filteredResources>
 		<filter>
 			<id>1667990030454</id>
