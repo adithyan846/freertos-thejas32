@@ -8,28 +8,26 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
--include thejas32/riscv_hal/subdir.mk
--include thejas32/hal/subdir.mk
--include thejas32/drivers/vega-sdk/bsp/drivers/uart/subdir.mk
--include thejas32/drivers/vega-sdk/bsp/drivers/timer/subdir.mk
--include thejas32/drivers/vega-sdk/bsp/drivers/spi/subdir.mk
--include thejas32/drivers/vega-sdk/bsp/drivers/qspi/subdir.mk
--include thejas32/drivers/vega-sdk/bsp/drivers/pwm/subdir.mk
--include thejas32/drivers/vega-sdk/bsp/drivers/interrupt/subdir.mk
--include thejas32/drivers/vega-sdk/bsp/drivers/i2c/subdir.mk
--include thejas32/drivers/vega-sdk/bsp/drivers/gpio/subdir.mk
--include thejas32/drivers/vega-sdk/bsp/drivers/at25sf161_flash/subdir.mk
--include thejas32/drivers/vega-sdk/bsp/common/subdir.mk
--include thejas32/drivers/CoreUART/subdir.mk
--include full_demo/subdir.mk
--include blinky_demo/subdir.mk
--include Libraryapp/subdir.mk
--include Initialization/subdir.mk
+-include thejas32_hal/riscv_hal/subdir.mk
+-include thejas32_hal/hal/subdir.mk
+-include thejas32_hal/drivers/vega-sdk_freertos_thejas32/bsp/drivers/uart/subdir.mk
+-include thejas32_hal/drivers/vega-sdk_freertos_thejas32/bsp/drivers/timer/subdir.mk
+-include thejas32_hal/drivers/vega-sdk_freertos_thejas32/bsp/drivers/spi/subdir.mk
+-include thejas32_hal/drivers/vega-sdk_freertos_thejas32/bsp/drivers/qspi/subdir.mk
+-include thejas32_hal/drivers/vega-sdk_freertos_thejas32/bsp/drivers/pwm/subdir.mk
+-include thejas32_hal/drivers/vega-sdk_freertos_thejas32/bsp/drivers/interrupt/subdir.mk
+-include thejas32_hal/drivers/vega-sdk_freertos_thejas32/bsp/drivers/i2c/subdir.mk
+-include thejas32_hal/drivers/vega-sdk_freertos_thejas32/bsp/drivers/gpio/subdir.mk
+-include thejas32_hal/drivers/vega-sdk_freertos_thejas32/bsp/drivers/at25sf161_flash/subdir.mk
+-include thejas32_hal/drivers/vega-sdk_freertos_thejas32/bsp/common/subdir.mk
+-include thejas32_hal/drivers/CoreUART/subdir.mk
 -include FreeRTOS_Source/portable/MemMang/subdir.mk
 -include FreeRTOS_Source/portable/GCC/RISC-V/subdir.mk
 -include FreeRTOS_Source/portable/Common/subdir.mk
 -include FreeRTOS_Source/subdir.mk
--include Applications/subdir.mk
+-include Demo/RISCV_CDAC_THEJAS32/full_demo/subdir.mk
+-include Demo/RISCV_CDAC_THEJAS32/blinky_demo/subdir.mk
+-include Demo/RISCV_CDAC_THEJAS32/subdir.mk
 -include subdir.mk
 -include objects.mk
 
@@ -83,7 +81,7 @@ main-build: RTOSDemo.elf secondary-outputs
 RTOSDemo.elf: $(OBJS) $(USER_OBJS) makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GNU RISC-V Cross C Linker'
-	riscv32-vega-elf-gcc -march=rv32i -mabi=ilp32 -mcmodel=medany -msmall-data-limit=8 -mno-save-restore -march=rv32i_zicsr -Og -fsigned-char -ffunction-sections -fdata-sections -g -g3 -T "/home/saurav/Downloads/freertos_itns_googledrive/RISC-V_CDAC_THEJAS32/riscv-thejas32.ld" -nostartfiles -Xlinker --gc-sections -L"/home/saurav/Downloads/freertos_itns_googledrive/RISC-V_CDAC_THEJAS32/thejas32/drivers/vega-sdk/bsp" -L"/home/saurav/Downloads/freertos_itns_googledrive/RISC-V_CDAC_THEJAS32/full_demo/mq3_includes" -Wl,-Map,"RTOSDemo.map" -v -o "RTOSDemo.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	riscv32-vega-elf-gcc -march=rv32i -mabi=ilp32 -mcmodel=medany -msmall-data-limit=8 -mno-save-restore -march=rv32i_zicsr -Og -fsigned-char -ffunction-sections -fdata-sections -g -g3 -T "/home/saurav/Documents/Freertos_thejas32_main/freertos-thejas32/Demo/RISCV_CDAC_THEJAS32/riscv-thejas32.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"RTOSDemo.map" -v -o "RTOSDemo.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

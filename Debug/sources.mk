@@ -20,27 +20,24 @@ C_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
-Applications \
+Demo/RISCV_CDAC_THEJAS32/blinky_demo \
+Demo/RISCV_CDAC_THEJAS32/full_demo \
+Demo/RISCV_CDAC_THEJAS32 \
 FreeRTOS_Source \
 FreeRTOS_Source/portable/Common \
 FreeRTOS_Source/portable/GCC/RISC-V \
 FreeRTOS_Source/portable/MemMang \
-Initialization \
-Libraryapp \
-. \
-blinky_demo \
-full_demo \
-thejas32/drivers/CoreUART \
-thejas32/drivers/vega-sdk/bsp/common \
-thejas32/drivers/vega-sdk/bsp/drivers/at25sf161_flash \
-thejas32/drivers/vega-sdk/bsp/drivers/gpio \
-thejas32/drivers/vega-sdk/bsp/drivers/i2c \
-thejas32/drivers/vega-sdk/bsp/drivers/interrupt \
-thejas32/drivers/vega-sdk/bsp/drivers/pwm \
-thejas32/drivers/vega-sdk/bsp/drivers/qspi \
-thejas32/drivers/vega-sdk/bsp/drivers/spi \
-thejas32/drivers/vega-sdk/bsp/drivers/timer \
-thejas32/drivers/vega-sdk/bsp/drivers/uart \
-thejas32/hal \
-thejas32/riscv_hal \
+thejas32_hal/drivers/CoreUART \
+thejas32_hal/drivers/vega-sdk_freertos_thejas32/bsp/common \
+thejas32_hal/drivers/vega-sdk_freertos_thejas32/bsp/drivers/at25sf161_flash \
+thejas32_hal/drivers/vega-sdk_freertos_thejas32/bsp/drivers/gpio \
+thejas32_hal/drivers/vega-sdk_freertos_thejas32/bsp/drivers/i2c \
+thejas32_hal/drivers/vega-sdk_freertos_thejas32/bsp/drivers/interrupt \
+thejas32_hal/drivers/vega-sdk_freertos_thejas32/bsp/drivers/pwm \
+thejas32_hal/drivers/vega-sdk_freertos_thejas32/bsp/drivers/qspi \
+thejas32_hal/drivers/vega-sdk_freertos_thejas32/bsp/drivers/spi \
+thejas32_hal/drivers/vega-sdk_freertos_thejas32/bsp/drivers/timer \
+thejas32_hal/drivers/vega-sdk_freertos_thejas32/bsp/drivers/uart \
+thejas32_hal/hal \
+thejas32_hal/riscv_hal \
 
