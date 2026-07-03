@@ -85,16 +85,9 @@
  * See http://www.freertos.org/a00110.html.
  *----------------------------------------------------------*/
 
-//#define configCLINT_BASE_ADDRESS			0x20010000 //PLIC_BASE
-//#define configMTIME_BASE_ADDRESS 	 /*(( 0x20010000 )+*/0x2000000 + 0xBFF8UL  /*0x580)*/
-//#define configMTIMECMP_BASE_ADDRESS  /*(( 0x20010000 )+ */ 0x2000000 + 0x4000UL /*0x480)*/
-
-
 
 #define configMTIME_BASE_ADDRESS 	 (0x20010000 + 0x580)
 #define configMTIMECMP_BASE_ADDRESS      (0x20010000 + 0x480)
-//#define configMTIME_BASE_ADDRESS 	 0
-//#define configMTIMECMP_BASE_ADDRESS 	0
 
 
 #define configUSE_PREEMPTION				1
@@ -103,13 +96,13 @@
 #define configUSE_IDLE_HOOK				1
 #define configUSE_TICK_HOOK				0
 #define configCPU_CLOCK_HZ				( ( uint32_t )  ( SYS_CLK_FREQ)/4000 )
-//#define configCPU_CLOCK_HZ				( ( uint32_t )  ( SYS_CLK_FREQ) )
+
 
 #define configISR_STACK_SIZE_WORDS			4096
 
 
 
-#define configTICK_RATE_HZ				( ( TickType_t ) 1000 )        //Change according to requirement.
+#define configTICK_RATE_HZ				( ( TickType_t ) 1000 )
 #define configMAX_PRIORITIES				( 5 )
 #define configMINIMAL_STACK_SIZE			( ( uint32_t ) 300) /* Can be as low as 60 but some of the demo tasks that use this constant require it to be higher. */
 #define configTOTAL_HEAP_SIZE				( ( size_t ) ( 16 * 1024 ) )

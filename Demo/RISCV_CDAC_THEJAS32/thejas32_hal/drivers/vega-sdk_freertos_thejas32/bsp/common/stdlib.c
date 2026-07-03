@@ -170,7 +170,7 @@ csr_handler (void)
  * @warning 
  */
  
-uintptr_t __attribute__((weak)) handle_trap(uintptr_t cause, uintptr_t epc, uintptr_t regs[32])
+uintptr_t handle_trap(uintptr_t cause, uintptr_t epc, uintptr_t regs[32])
 {
 	/*printf("\n\rTRAP\n\r");
 	

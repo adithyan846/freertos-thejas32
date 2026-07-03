@@ -40,7 +40,7 @@
 #include "semphr.h"
 
 /* thejas64 incldues. */
-//#include "riscv_hal.h"
+
 
 /* Standard demo application includes. */
 #include "dynamic.h"
@@ -58,9 +58,9 @@
 
 #include "stdlib.h"
 #include "pwmc.h"
-//#include "i2c.h"
+
 #include "config.h"
-//#include "gpio.h"
+
 
 
 
@@ -85,7 +85,6 @@ static void
 prvSetupHardware (void);	//Prepare haredware to run the demo.
 /* Send a messaage to the UART initialised in prvSetupHardware. */
 
-//void Init_uart(void);
 void
 vSendString (const char *const pcString);
 void
@@ -94,7 +93,7 @@ Transmit_uart (UC*);
 
 #define mainCHECK_TASK_PRIORITY  (tskIDLE_PRIORITY+3)
 
-//extern volatile uint64_t * pullMachineTimerCompareRegister ;
+
 
 extern uint64_t ullNextTime;
 extern volatile uint32_t *pullMachineTimerCompareRegister;
@@ -106,9 +105,6 @@ void
 vPortSetupTimerInterrupt (void)
 {
   pullMachineTimerCompareRegister = (volatile uint32_t* const ) ( configMTIMECMP_BASE_ADDRESS);
-  //uint64_t ulCurrentTime;
-  //volatile uint64_t *const pulTime = (volatile uint64_t* const ) ( configCLINT_BASE_ADDRESS + 0x580);
-
   uint32_t ulCurrentTimeHigh, ulCurrentTimeLow;
 
   volatile uint32_t *const pulTimeHigh = (volatile uint32_t* const ) (( configMTIME_BASE_ADDRESS) + 4UL); //8-byte typer so high 32-bit word is 4 bytes up.
@@ -116,7 +112,7 @@ vPortSetupTimerInterrupt (void)
 
   volatile uint32_t *const pulTimeCmpHigh = (volatile uint32_t* const ) (( configMTIMECMP_BASE_ADDRESS) + 4UL); //8-byte typer so high 32-bit word is 4 bytes up.
   volatile uint32_t *const pulTimeCmpLow = (volatile uint32_t* const ) ( configMTIMECMP_BASE_ADDRESS);
-  //pullMachineTimerCompareRegister = (volatile uint32_t*) ( configMTIMECMP_BASE_ADDRESS);
+
   // Prepare the time to use after the next tick interrupt.
   do
     {
@@ -127,13 +123,12 @@ vPortSetupTimerInterrupt (void)
   ullNextTime = (uint64_t) ulCurrentTimeHigh;
   ullNextTime <<= 32ULL;  //High 4-byte word is 32-bits up.
   ullNextTime |= (uint64_t) ulCurrentTimeLow;
-  //printf ("1 val of uxTimerIncrementsForOneTick %d, currentTime %ld\n", uxTimerIncrementsForOneTick, ullNextTime);
+
   ullNextTime += (uint64_t) uxTimerIncrementsForOneTick;
   *pulTimeCmpHigh = (uint32_t) (ullNextTime >> 32ULL);
   *pulTimeCmpLow = (uint32_t) ullNextTime;
   ullNextTime += (uint64_t) uxTimerIncrementsForOneTick;
-  // printf ("2 val of uxTimerIncrementsForOneTick %d, ullNextTime %ld\n", uxTimerIncrementsForOneTick, ullNextTime);
-  //printf ("uint64_t %d\n", sizeof(uint64_t));
+
 }
 
 
@@ -157,17 +152,17 @@ main (void)
 
   if (xTaskCreate (TestTask1, "Reg1", configMINIMAL_STACK_SIZE, NULL, mainCHECK_TASK_PRIORITY, NULL))
     {
-        vSendString ("EEPROM_Task Created \n\r");
+        vSendString ("TASK 1 Created \n\r");
     }
 
   if (xTaskCreate (TestTask2, "Reg2", configMINIMAL_STACK_SIZE, NULL, mainCHECK_TASK_PRIORITY, NULL))
     {
-        vSendString ("To control SPI lines \n\r");
+        vSendString ("TASK 2 Created \n\r");
     }
 
   if (xTaskCreate (TestTask3, "Reg3", configMINIMAL_STACK_SIZE, NULL, mainCHECK_TASK_PRIORITY, NULL))
     {
-        vSendString ("To control WDT \n\r");
+        vSendString ("TASK 3 Created \n\r");
     }
 
 
@@ -181,16 +176,8 @@ main (void)
 static void
 prvSetupHardware (void)
 {
-
-  //PLIC_init();
-  //Init_uart();
   interrupt_disable_all ();
   disable_irq ();
-  // GPIO_write_pin(25, 1);
-  //  GPIO_write_pin(20, 1);
-  //Initialization();
-  // ullNextTime = 0ULL;		// Used to program the machine timer compare register.
-  //GPIO_write_pin(GPIOI2CSW, LOW);
 
   vSendString ("UART [OK]\n\r");
 }
