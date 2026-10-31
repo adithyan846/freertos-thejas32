@@ -167,6 +167,7 @@ main (void)
 
 
   /* Start the scheduler. */
+  printf("hiii %d", 5);
   vTaskStartScheduler ();
   for (;;)
     ;

@@ -20,7 +20,11 @@ This project is licensed under the MIT License — see [FreeRTOS_Source/LICENSE.
 
 The original CDAC VEGA FreeRTOS port is also MIT licensed.
 
+
+
 ## Building
+
+before anything clone and put vega-tools inside the home directory ie ~/vega-tools
 
 ```bash
 # From the repository root
